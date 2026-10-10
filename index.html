@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thailand Nursing Homes Map · แผนที่ศูนย์ดูแลผู้สูงอายุ</title>
+<link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="vendor/MarkerCluster.css"><link rel="stylesheet" href="vendor/MarkerCluster.Default.css">
+<link rel="stylesheet" href="base.css"><link rel="stylesheet" href="app.css"></head><body>
+<div id="app"><aside id="panel">
+<h1>Thailand Nursing Homes Map</h1><div class="sub">แผนที่ศูนย์ดูแลผู้สูงอายุ / เนอร์สซิ่งโฮม ทั่วไทย</div>
+<div class="updated">Data pulled 10 Oct 2026 · ข้อมูล ณ 10 ต.ค. 2569</div>
+<section><div class="kpis">
+<div class="kpi"><b id="kLic">927</b><span>Licensed by HSS (official, 2025)<br>ได้รับอนุญาตจาก สบส.</span></div>
+<div class="kpi"><b id="kMap">–</b><span>Shown on map (located)<br>ปักหมุดได้บนแผนที่</span></div>
+<div class="kpi red"><b id="kNews">–</b><span>In the news (Oct 2026)<br>เป็นข่าว</span></div></div>
+<div class="small" id="bySrc"></div></section>
+<section class="limits"><h2>What this data is · ข้อมูลนี้คืออะไร</h2>
+<p><b>927</b> is the official number of licensed elderly-care businesses in a Department of Older Persons report using HSS data (2025). The map pins come from OpenStreetMap and from matching licensed names to OpenStreetMap places, so <b>it undercounts</b>. Many homes are not on any map, and unlicensed homes are not on the official list at all. Google Maps can't be fully searched automatically, so it wasn't used for the count.</p>
+<p class="th">ตัวเลข 927 แห่ง คือจำนวนที่ได้รับอนุญาตอย่างเป็นทางการ (ข้อมูล สบส. ปี 2568) หมุดบนแผนที่มาจาก OpenStreetMap จึง<b>นับได้ไม่ครบ</b> ศูนย์ที่ไม่ได้ขออนุญาตจะไม่อยู่ในรายชื่อทางการ และดึงข้อมูลจาก Google Maps ทั้งหมดไม่ได้</p>
+<p class="small">Only places named in news reports are marked red. Every other pin means <b>no issue reported</b>. นอกจากจุดสีแดง ไม่มีรายงานปัญหาใด ๆ</p></section>
+<section><h2>Filter · ค้นหา</h2>
+<input id="q" placeholder="Search name / ค้นหาชื่อ"><select id="prov"><option value="">All provinces · ทุกจังหวัด</option></select>
+<select id="src"><option value="">All sources · ทุกแหล่ง</option></select>
+<label class="chk"><input type="checkbox" id="choro" checked> Shade provinces by licensed count · ระบายสีตามจำนวนที่ได้รับอนุญาต</label></section>
+<section><h2>In the news · เป็นข่าว (Oct 2026)</h2><div id="news"></div></section>
+<section><h2>Licensed by province (top 10) · จำนวนที่ได้รับอนุญาต</h2><div id="top"></div></section>
+<section><h2>Licensed list · รายชื่อที่ได้รับอนุญาต</h2><div class="small">Pick a province above to see its licensed list (2025 report). เลือกจังหวัดเพื่อดูรายชื่อ</div><div id="liclist"></div></section>
+<section class="howto"><h2>How to check a nursing home · วิธีตรวจสอบก่อนส่งผู้สูงอายุ</h2><ol>
+<li>Check the license on the HSS site: <a href="https://esta.hss.moph.go.th/check-shops.php" target="_blank">esta.hss.moph.go.th</a>. ตรวจใบอนุญาตที่เว็บ สบส.</li>
+<li>Ask to see the license on the wall and check the <b>number of beds</b> allowed. Compare it with how many people are there. ขอดูใบอนุญาตและจำนวนเตียงที่ได้รับอนุญาต</li>
+<li>Visit unannounced. Look for restraints, locked rooms, smell, and enough trained staff. ไปดูสถานที่จริงแบบไม่นัด</li>
+<li>Report problems: HSS <b>02-193-7000</b> · Social help hotline (พม.) <b>1300</b> · Police <b>191</b>.</li></ol>
+<div class="small">Hotline numbers taken from HSS and Ministry of Social Development pages. Check them again before relying on them.</div></section>
+<section><h2>Sources · แหล่งข้อมูล</h2><ul class="src">
+<li><a href="https://www.dop.go.th/download/news/th1743570338-5622_0.pdf" target="_blank">Department of Older Persons: licensed elderly-care businesses by province (HSS data, 2025)</a></li>
+<li><a href="https://esta.hss.moph.go.th/check-shops.php" target="_blank">HSS license check (live)</a></li>
+<li><a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a> (Overpass API, Nominatim)</li>
+<li><a href="https://github.com/apisit/thailand.json" target="_blank">Province boundaries: apisit/thailand.json</a></li>
+<li>News: Nation TV, Khaosod, Hfocus, MGR Online, Thai PBS (linked above)</li>
+<li>Downloads: <a href="data/nursing_homes.csv">map pins CSV</a> · <a href="data/nursing_homes.geojson">GeoJSON</a> · <a href="data/licensed_list_2025.csv">licensed list CSV</a></li></ul></section>
+</aside><div id="mapwrap"><div id="map"></div></div></div>
+<script src="vendor/leaflet.js"></script><script src="vendor/leaflet.markercluster.js"></script><script src="news.js"></script><script src="app.js"></script></body></html>

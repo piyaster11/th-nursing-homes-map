@@ -6,10 +6,10 @@ const green=L.divIcon({className:'',html:'<div style="width:12px;height:12px;bor
 let pts=[],provs,cl=L.markerClusterGroup({showCoverageOnHover:false}),newsL=L.layerGroup().addTo(map),choro;
 const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let LIC=[];
-function popup(p){const g=`https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lon}`;
+function popup(p){const q=(p.name||p.name_en||'nursing home');const g=`https://www.google.com/maps/search/${encodeURIComponent(q)}/@${p.lat},${p.lon},17z`;
  let s=`<b>${esc(p.name)}</b><br>${p.name_en&&p.name_en!==p.name?esc(p.name_en)+'<br>':''}${esc(p.address)}<br>${esc(p.province)} · ${esc(p.province_th)}<br>License: ${esc(p.license_status)}<br>`;
  s+= p.news==='in_news'?`<b style="color:#e5383b">In the news (Oct 2026). See the news list in the panel.</b><br>`:`<i>No issue reported. Listed from ${esc(p.source)}.</i><br>`;
- return s+`<a href="${g}" target="_blank">Open in Google Maps</a> · <a href="${p.source_url}" target="_blank">Source</a>`;}
+ return s+`<a href="${g}" target="_blank">Open in Google Maps (by name)</a> · <a href="${p.source_url}" target="_blank">Source</a>`;}
 function color(n){return n>=100?'#08306b':n>=40?'#2171b5':n>=15?'#6baed6':n>=5?'#c6dbef':n>=1?'#eef5fc':'#ffffff'}
 function draw(){const q=document.getElementById('q').value.trim().toLowerCase(),pv=document.getElementById('prov').value,sr=document.getElementById('src').value;
  cl.clearLayers();newsL.clearLayers();let n=0;
